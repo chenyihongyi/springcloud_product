@@ -2,6 +2,8 @@ package com.springcloud_product.demo.springcloud_product.service.impl;
 
 import com.springcloud_product.demo.springcloud_product.domain.Product;
 import com.springcloud_product.demo.springcloud_product.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -15,6 +17,8 @@ import java.util.*;
 public class ProductServiceImpl implements ProductService {
 
     private static final Map<Integer, Product> daoMap = new HashMap<>();
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     static {
         Product p1 = new Product(1, "iphonex", 9999, 10);
@@ -43,6 +47,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product findById(int id) {
+        logger.info("service findById");
         return daoMap.get(id);
     }
 }

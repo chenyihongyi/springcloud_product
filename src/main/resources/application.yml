@@ -12,3 +12,7 @@ eureka:
 spring:
   application:
     name: product-service
+
+    #zipkin服务所在地址
+  zipkin:
+    base-url: http://47.113.106.197:9411
